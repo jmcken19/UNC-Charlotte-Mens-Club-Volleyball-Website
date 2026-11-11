@@ -1,5 +1,20 @@
-ITCS-3135 FINAL PROJECT SPRING 2025 HTML - CSS - JS
+# UNC Charlotte Men's Club Volleyball
 
-https://webpages.charlotte.edu/jmcken19/itis3135/Project2/index.html
+The club's website: plain HTML, CSS and JavaScript, no build step.
 
-The UNC-Charlotte Men’s Volleyball Club website aims to enhance the club’s online presence. Given that men's volleyball is less publicized than women’s volleyball, this website will serve as a platform to promote the sport, attract new members, and facilitate donations to support the team.
+| Page | File |
+| --- | --- |
+| Home | `index.html` |
+| Roster | `roster.html` |
+| Schedule | `schedule.html` |
+| Stats | `statistics.html` |
+| Support / donate | `donate.html` |
+| Join the team | `apply.html` |
+
+- Styles: `css/site.css` (club colours are the variables at the top). Scripts: `js/site.js`.
+- Web-sized photos live in `images/web/` (`<name>.jpg` 1800 px, `<name>-sm.jpg` 900 px).
+- Nationals countdown: set `NEXT_NATIONALS` at the top of `js/site.js` once the date is announced.
+- Hosting: every push to `main` deploys to GitHub Pages (`.github/workflows/pages.yml`).
+  One-time setup: repo Settings > Pages > Source = "GitHub Actions".
+
+Originally built as the ITCS-3135 final project (Spring 2025).
