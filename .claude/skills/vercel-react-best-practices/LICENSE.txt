@@ -1,5 +1,0 @@
-MIT License – see README.md of the source repo (named in .source.json).
-
-## License
-
-MIT
