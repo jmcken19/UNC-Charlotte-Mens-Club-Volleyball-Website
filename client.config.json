@@ -1,0 +1,123 @@
+{
+  "_comment": "Per-client setup. Fill in with `npm run new-client` (scripts/new-client.mjs), then adjust by hand. See docs/PLAYBOOK.md.",
+  "client": {
+    "slug": "uncc-mens-volleyball",
+    "name": "UNC Charlotte Men's Club Volleyball"
+  },
+  "domain": {
+    "main": "www.example-club.test",
+    "apex": "example-club.test"
+  },
+  "github": {
+    "repo": "jmcken19/unc-charlotte-mens-club-volleyball-website",
+    "pagesPath": "/unc-charlotte-mens-club-volleyball-website"
+  },
+  "cloudflare": {
+    "accountId": "",
+    "siteWorker": "uncc-mens-volleyball-site",
+    "editorWorker": "uncc-mens-volleyball-editor",
+    "d1Name": "uncc-mens-volleyball-editor",
+    "d1Id": "",
+    "kvId": "",
+    "accessTeamDomain": "",
+    "accessAud": ""
+  },
+  "owner": {
+    "name": "James McKenna",
+    "supportName": "James McKenna"
+  },
+  "features": {
+    "slideshow": true,
+    "reviews": false,
+    "contactForm": false
+  },
+  "reviewsPath": "/reviews/",
+  "themeColor": "#005035",
+  "photoSpots": {
+    "team": {
+      "label": "Team photo",
+      "where": "Home page, next to the club text",
+      "page": "/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "The team sitting together in the stands at a volleyball event",
+      "defaults": {
+        "small": "/assets/img/team-800.jpg",
+        "large": "/assets/img/team-1400.jpg",
+        "alt": "The team sitting together in the stands at a volleyball event"
+      }
+    },
+    "roster": {
+      "label": "Roster page photo",
+      "where": "Roster page, top",
+      "page": "/roster/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "Charlotte players in green jerseys huddle on court between points",
+      "defaults": {
+        "small": "/assets/img/roster-banner-800.jpg",
+        "large": "/assets/img/roster-banner-1400.jpg",
+        "alt": "Charlotte players in green jerseys huddle on court between points"
+      }
+    },
+    "schedule": {
+      "label": "Schedule page photo",
+      "where": "Schedule page, top",
+      "page": "/schedule/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "A Charlotte player in a green jersey goes up for a spike at the net",
+      "defaults": {
+        "small": "/assets/img/schedule-banner-800.jpg",
+        "large": "/assets/img/schedule-banner-1400.jpg",
+        "alt": "A Charlotte player in a green jersey goes up for a spike at the net"
+      }
+    },
+    "stats": {
+      "label": "Statistics page photo",
+      "where": "Statistics page, top",
+      "page": "/statistics/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "Players in Charlotte gear watching a match from courtside",
+      "defaults": {
+        "small": "/assets/img/stats-banner-800.jpg",
+        "large": "/assets/img/stats-banner-1400.jpg",
+        "alt": "Players in Charlotte gear watching a match from courtside"
+      }
+    },
+    "donate": {
+      "label": "Donate page photo",
+      "where": "Donate page, top",
+      "page": "/donate/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "The team standing together with their luggage at an airport gate",
+      "defaults": {
+        "small": "/assets/img/donate-banner-800.jpg",
+        "large": "/assets/img/donate-banner-1400.jpg",
+        "alt": "The team standing together with their luggage at an airport gate"
+      }
+    },
+    "apply": {
+      "label": "Apply page photo",
+      "where": "Apply page, top",
+      "page": "/apply/",
+      "minEdge": 1000,
+      "tip": "A wide (landscape) photo looks best.",
+      "newAlt": "Players resting on the floor of an airport terminal with their bags",
+      "defaults": {
+        "small": "/assets/img/apply-banner-800.jpg",
+        "large": "/assets/img/apply-banner-1400.jpg",
+        "alt": "Players resting on the floor of an airport terminal with their bags"
+      }
+    }
+  },
+  "redirects": {
+    "/roster.html": "/roster/",
+    "/schedule.html": "/schedule/",
+    "/statistics.html": "/statistics/",
+    "/apply.html": "/apply/",
+    "/donate.html": "/donate/"
+  }
+}
