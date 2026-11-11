@@ -52,6 +52,8 @@ label); keep sentences whole where you can – split only around links.
   fonts such as Fraunces/Inter, "AI cream" backgrounds, kicker labels over headings, skipped heading levels, low contrast).
   Its design hook runs automatically after edits in Claude Code. **The client's brand wins:** on a faithful rebuild, a
   finding that matches the client's own old site is not a fix – record it as an exception (see `visual-check`).
+* Other design skills (frontend-design, taste-skill, design-styles, ui-ux-pro-max, web-design-guidelines,
+  playwright-cli): each has one job – see `docs/DESIGN-PIPELINE.md`. On a faithful rebuild only the checking ones apply.
 
 ## Owner editor (`owner/ui/`)
 Owners are often older and non-technical. Keep: large text (≈21 px base), big buttons (≈60 px), one obvious primary

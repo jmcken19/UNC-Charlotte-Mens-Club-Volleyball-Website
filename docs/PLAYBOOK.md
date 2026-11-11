@@ -23,8 +23,8 @@ Use **[INTAKE-CHECKLIST.md](INTAKE-CHECKLIST.md)**. The must-haves before you st
 
 ## 2. Audit & copy the current site
 1. Make the client's repo (exact steps: [START-HERE.md](START-HERE.md)): **github.com/new** → *Repository template*: `client-site-template` → name `<client>-site`
-   → **Private** → Create. (Or the green **Use this template** button on the template repo.)
-2. Clone it, `npm ci`, then **`npm run new-client`** – answers ~10 questions and fills in
+   → **Public** (Private only with GitHub Pro – free accounts get the testing link for public repos only; secrets never live in the repo) → Create. (Or the green **Use this template** button on the template repo.)
+2. Clone it, `npm ci`, `npm run skills:check` (lists the design skills – they come with the repo), then **`npm run new-client`** – answers ~10 questions and fills in
    `client.config.json`, `content/site.json` and the Cloudflare config files. Run `npm test` straight away: the tests read
    the client's own config (features switched off are skipped, photo spots and pages come from the config), so they must
    pass for every client – a failing test blocks every publish the owner makes.
@@ -39,6 +39,8 @@ Use **[INTAKE-CHECKLIST.md](INTAKE-CHECKLIST.md)**. The must-haves before you st
    (`{ "/old-path/": "/new-path/" }`) so Google and old links keep working.
 
 ## 3. Rebuild their design
+> **Which design skill does what:** [DESIGN-PIPELINE.md](DESIGN-PIPELINE.md). A faithful rebuild is **Track A** – checks
+> only (web-design-guidelines, Impeccable, visual-check, playwright-cli); the restyling skills stay out of it.
 > **No existing site, or no inspiration to work from?** Use the `design-from-scratch` skill instead of rebuilding: write a brief, research the category, make 3 direction previews, and let the client pick one.
 * `src/site/layout.mjs` (header, menu, footer), `src/site/pages.mjs` (each page), `src/site/routes.mjs` (page list),
   `public/assets/css/site.css` (their colors, fonts, spacing). Start from the starter files and reshape them.
@@ -50,7 +52,7 @@ Use **[INTAKE-CHECKLIST.md](INTAKE-CHECKLIST.md)**. The must-haves before you st
 * Favicon: replace `public/favicon.ico`, `public/assets/img/favicon-32.png`, `apple-touch-icon.png` with theirs.
 * Mobile first. Check at 390 px wide (phone) and 1366 px (laptop). Big tap targets (48 px), readable text (≥16 px).
 * Avoid the "AI website look": no stock gradients, no invented stats, no "Elevate your…" copy. Match what they have.
-* `npm test` must pass (and `npm run test:ui` + `npm run test:visual` after editor or layout changes). `npm run build:preview` and open `dist/index.html` to check.
+* Run Track A's checks (A2–A6 in [DESIGN-PIPELINE.md](DESIGN-PIPELINE.md)). `npm test` must pass (and `npm run test:ui` + `npm run test:visual` after editor or layout changes). `npm run build:preview` and open `dist/index.html` to check.
 
 ## 4. Testing link (GitHub Pages)
 Repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**. (Free GitHub accounts: public repos only.) Every push now updates

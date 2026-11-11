@@ -17,6 +17,16 @@ sideways scrolling, tap targets under 40 px on phones, missing `<h1>`. Exit code
 **Then look at the screenshots yourself** (open the PNGs). The tool can't judge: alignment, spacing, text overlapping
 photos, colors that clash, things that look different from the client's old site. Report what you checked.
 
+## Code and accessibility audit (web-design-guidelines)
+Run the `web-design-guidelines` skill on `src/site/`, `src/parts/` and `public/assets/css/` (pinned rules in its
+`guidelines.md`, no download). Fix each `file:line` finding in the source, never in `dist/`.
+
+## Click-through (playwright-cli)
+`npm run serve` (builds the preview and serves it at http://localhost:8080/), then in a second terminal
+`npx playwright-cli open http://localhost:8080/` and walk it: menu open/close, every page link, slideshow buttons,
+Tab through the page (focus visible?), the contact form's labels and errors – **without submitting**. `npx playwright-cli
+resize 390 844` for the phone. Close with `npx playwright-cli close`. Local preview only – never a live client form.
+
 ## Design check (Impeccable)
 ```
 npm run design:check          # builds, then runs the Impeccable detector on dist/ (62 rules)

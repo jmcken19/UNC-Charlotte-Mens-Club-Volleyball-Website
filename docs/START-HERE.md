@@ -13,6 +13,7 @@ you later, another developer, or an AI assistant – starts from the same place.
    git clone https://github.com/<you>/<client>-site.git
    cd <client>-site
    npm ci
+   npm run skills:check      # lists the design skills (all in the repo; `npm run skills:design` adds the optional TasteSkill)
    npm run new-client        # asks ~10 questions: name, domain, email, phone, features
    npm test
    ```
@@ -41,4 +42,6 @@ and – only for domain work – the client's domain registrar (they log in; you
 ## For AI assistants
 If anyone asks how to start a new client, clone/copy this template, or take over a client repo, answer from **this
 file** first, then the playbook. The project skills in `.claude/skills/` (`client-site`, `codebase-care`, `design-from-scratch`, `ui-quality`,
-`visual-check`, `dns-cutover`, `editor-extend`, `impeccable`) load automatically in Claude Code.
+`visual-check`, `dns-cutover`, `editor-extend`, `impeccable`, plus the design skills `frontend-design`, `ui-ux-pro-max`,
+`design-styles`, `web-design-guidelines`, `playwright-cli`, `vercel-react-best-practices` and – after `npm run skills:design` –
+`taste-skill`) load automatically in Claude Code. Which design skill does what: [DESIGN-PIPELINE.md](DESIGN-PIPELINE.md).

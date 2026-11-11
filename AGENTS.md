@@ -48,8 +48,18 @@ site/                       the live-site Worker (apex → www redirect, headers
 tests/                      npm test (build + editor API); npm run test:ui (editor in a real browser)
 docs/                       PLAYBOOK, INTAKE-CHECKLIST, PARTS, SECURITY, SKILLS, templates for per-client docs
 .claude/skills/             project skills: client-site, codebase-care, design-from-scratch, ui-quality, visual-check, dns-cutover, editor-extend, impeccable
+                            design skills from other repos (pinned, house rules on top): frontend-design, ui-ux-pro-max, design-styles,
+                            web-design-guidelines, playwright-cli, vercel-react-best-practices, taste-skill (fetched – see below)
 .claude/settings.json       Impeccable design hook (checks UI files after edits)   .impeccable/config.json  its settings + recorded exceptions
 ```
+
+## Design skills – one job each
+* Before design work, run `npm run skills:check` (every skill except the optional `taste-skill` is committed; `npm run
+  skills:design` downloads that one). Don't install other skills or plugins without asking James.
+* Which skill does what and in what order: **docs/DESIGN-PIPELINE.md**. Faithful rebuild (the client has a site) =
+  Track A: checks only – never restyle it with frontend-design, taste-skill, design-styles or ui-ux-pro-max.
+* The house rules at the top of every design skill win over the rest of that skill: client words word for word
+  (no skill writes copy), client brand and photos first, no shaders/WebGL/3D on small-business sites, plain HTML/CSS.
 
 ## Common tasks
 * **Text change:** edit `content/text.json` (or the `site.json` field) → `npm test` → push. (The owner can do it himself:

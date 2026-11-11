@@ -5,7 +5,7 @@
 //   npm run shots -- /about/      → just that page
 // Needs Google Chrome (set CHROME_PATH if it isn't at the usual place).
 import puppeteer from 'puppeteer-core';
-import { createServer } from 'node:http';
+import { serveDir } from './lib/static-server.mjs';
 import { readFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
@@ -27,13 +27,7 @@ const reviews = existsSync(join(root, 'content/reviews.json')) ? JSON.parse(awai
 let paths = routes({ config, site, reviews }).map((r) => r.path).filter((p) => !/\/reviews\/[^/]+\/$/.test(p) || p === (config.reviewsPath || '/reviews/'));
 if (only.length) paths = only;
 
-const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.jpg': 'image/jpeg', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.json': 'application/json', '.svg': 'image/svg+xml' };
-const server = createServer(async (req, res) => {
-  let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-  if (p.endsWith('/')) p += 'index.html';
-  try { res.writeHead(200, { 'Content-Type': MIME[extname(p)] || 'application/octet-stream' }); res.end(await readFile(join(dist, p.replace(/\.\.+/g, '')))); }
-  catch { res.writeHead(404); res.end('not found'); }
-}).listen(0);
+const server = await serveDir(dist);
 const base = `http://127.0.0.1:${server.address().port}`;
 await mkdir(outDir, { recursive: true });
 

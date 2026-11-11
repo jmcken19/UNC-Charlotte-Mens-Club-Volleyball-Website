@@ -22,3 +22,11 @@ screenshots/
 .impeccable-live.json
 .impeccable-live/
 .demo-data/
+
+# Design skills fetched by npm run skills:design (pinned, too big to commit – see docs/SKILLS.md)
+.claude/skills/taste-skill/
+.claude/skills/img2threejs/
+# playwright-cli session files and the cloud-only sandbox setting
+.playwright/
+.playwright-cli/
+.taste-skill/

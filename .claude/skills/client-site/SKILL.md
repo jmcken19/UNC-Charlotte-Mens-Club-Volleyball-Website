@@ -30,5 +30,5 @@ and tell the user which step you're on.
 - Put secrets/tokens in files, commits or messages.
 
 ## Quick commands
-`npm run new-client` · `npm run configure` · `npm test` · `npm run test:ui` · `npm run build:preview` ·
+`npm run skills:check` · `npm run skills:design` · `npm run new-client` · `npm run configure` · `npm test` · `npm run test:ui` · `npm run build:preview` ·
 `npm run photo -- hero <file> <n>` · `npm run photo -- page <file> <name>`

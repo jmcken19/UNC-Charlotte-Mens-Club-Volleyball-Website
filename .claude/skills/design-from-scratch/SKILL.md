@@ -25,6 +25,9 @@ Write `docs/DESIGN-BRIEF.md`:
 - **Words the client uses about themselves.** Write down 3 adjectives they'd pick, and 3 they'd hate.
 
 ## 2. Category research: patterns, not looks
+Order and job of each design skill: `docs/DESIGN-PIPELINE.md` Track B. Start here with
+`python .claude/skills/ui-ux-pro-max/scripts/search.py "<category> <audience> <3 words>" --design-system` for the page pattern
+and UX rules (ignore its palette if the client has colours), then the real-site research below.
 - Find **8–12 real sites in the same category** and **2–3 from a nearby category** (fresh ideas without copying). Use searches like:
   - `"<category>" website <city>`
   - `best <category> websites 2026`
@@ -58,7 +61,9 @@ Pick pages for the visitors in step 1. Fewer, better pages beat a big empty site
 | **Realtor** | See the James' Tech Help `design-library/realtors/` | | | NC advertising rules (firm name everywhere) |
 
 ## 5. Three original directions (the client picks one)
-Make **3 directions that are really different**. Vary at least 3 of these:
+Make **3 directions that are really different**. Start each from a concrete style in `design-styles`
+(`.claude/skills/design-styles/SKILL.md` has the index; run `npm run skills:design` if it's missing) and use
+`frontend-design`'s two passes (token plan → review it against the brief → change what's generic) – then adapt to the client's colours, photos and words. Vary at least 3 of these:
 - tone (bold, calm, warm, technical)
 - type pairing (free Google fonts)
 - color approach (brand-led, neutral plus one accent, dark)
@@ -70,7 +75,8 @@ For each direction, write in `docs/DESIGN-RESEARCH.md`: name, one-line mood, pal
 Build a **quick preview** for each in `design/directions/<1|2|3>.html`:
 - The homepage hero plus 2 sections, using the **client's real content and photos**, never lorem ipsum.
 - One file each, plain HTML/CSS, phone-first.
-- Open each at 390 px and 1366 px (`visual-check`), and run `npx impeccable detect design/directions/`. Fix every
+- Open each at 390 px and 1366 px (`visual-check`), run `npx impeccable detect design/directions/` (optionally TasteSkill's checker as a second opinion –
+  `docs/DESIGN-PIPELINE.md` B6). Fix every
   generic-look finding (overused font, cream background, kicker labels…) before the client sees them.
 - Send the client the three links, or screenshots.
 
