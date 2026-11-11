@@ -1,4 +1,4 @@
-name: Deploy site to GitHub Pages
+name: Publish testing preview (GitHub Pages)
 
 on:
   push:
@@ -12,24 +12,37 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
+  build:
+    # The template repo itself has no website – only client repos made from it publish.
+    if: ${{ !endsWith(github.repository, '/client-site-template') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Build the testing preview (banner on, form off, hidden from Google)
+        run: node scripts/build.mjs
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+          PREVIEW: "1"
+          BUILD_ID: ${{ github.sha }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - name: Collect site files
-        run: |
-          mkdir _site
-          cp -r *.html .nojekyll css js fonts images Stats _site/
-          rm -f _site/images/IMG_*.jp* _site/images/teampic.jpg _site/images/1500.jpg _site/images/gradient.jpg _site/images/sign.jpg
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
